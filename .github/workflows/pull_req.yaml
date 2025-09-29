@@ -1,7 +1,7 @@
 name : pull_req
 on : 
   pull_request : 
-    type : [opened]
+    types : [opened]
 
 jobs:
   jobs-for-pull_req:
