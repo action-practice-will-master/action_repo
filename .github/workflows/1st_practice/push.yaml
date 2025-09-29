@@ -2,7 +2,7 @@ name : push_workflows
 on: push
 
 jobs:
-  job_for_push:
+  job_for_push_2:
     runs-on: ubuntu-latest
     steps:
     - name: 1st_step
