@@ -29,7 +29,7 @@ jobs :
     runs-on : ubuntu-latest
     steps : 
     - name : pr_step
-      run : echo pull request event occured
+      run : echo pull request event occured modify
   
   wd_job :
     if : ${{github.event_name == 'workflow_dispatch'}}
