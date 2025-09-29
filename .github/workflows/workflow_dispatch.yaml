@@ -13,11 +13,11 @@ on :
         default : ""
       select : 
         type : choice
-        option :
+        options :
         - Hello
         - Hi
         - Greeting
-        default : no_select
+        default : Hello
 
 jobs:
   demo:
