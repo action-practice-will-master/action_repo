@@ -1,0 +1,37 @@
+name : workflow_dispatch_workflow
+on : 
+  workflow_dispatch : 
+    inputs:
+      isRun :
+        type : boolean
+        default : true
+      count : 
+        type : number
+        default : 0
+      name : 
+        type : string
+        default : ""
+      select : 
+        type : choice
+        option :
+        - Hello
+        - Hi
+        - Greeting
+        default : no_select
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print raw inputs
+        run: |
+          echo "isRun(raw)=${{ inputs.isRun }}"
+          echo "count(raw)=${{ inputs.count }}"
+          echo "name=${{ inputs.name }}"
+          echo "select=${{ inputs.select }}"
+
+      - name: use casted values
+        if: ${{ fromJSON(inputs.isRun) }}   # "true" -> true
+        run: |
+          echo "RUNNING for ${{ inputs.name }}"
+          echo $(( ${{ fromJSON(inputs.count) }} + 1 ))

@@ -7,11 +7,15 @@ jobs :
     runs-on: ubuntu-latest
     steps :
     - name : step_pr
-      run : echo ${{github.event.issue.pull_request}}
+      run : |
+        echo ${{github.event.issue.pull_request}}
+        echo "body=${{ github.event.comment.body }}"
 
   issue_comment_for_issue:
     if : ${{github.event.issue.pull_request == null}}
     runs-on : ubuntu-latest
     steps : 
     - name : step_issue
-      run : echo ${{github.event.issue.pull_request}}
+      run : |
+        echo ${{github.event.issue.pull_request}}
+        echo "body=${{ github.event.comment.body }}"
