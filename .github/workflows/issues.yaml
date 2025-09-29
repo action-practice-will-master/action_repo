@@ -9,7 +9,7 @@ jobs :
     steps : 
     - name : 1st_step
       run : echo Hello
-    - naem : 2nd_step
+    - name : 2nd_step
       run : |
         echo Hi
         echo Greeting
