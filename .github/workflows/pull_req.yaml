@@ -4,7 +4,7 @@ on :
     types : [opened]
 
 jobs:
-  jobs-for-pull_req:
+  jobs-for-pull_req_test:
     runs-on : ubuntu-latest
     steps : 
     - name : 1st_pull_req_step
