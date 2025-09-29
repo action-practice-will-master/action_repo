@@ -1,0 +1,47 @@
+name : multi_flow
+on :
+  push :
+    branches: [dev] # 특정 branch에서 push 되는 이벤트만 감지
+  pull_request :
+    types : [opened] # pr을 open하는 경우에만 이벤트 감지
+  workflow_dispatch:
+    inputs: # 직접 사용자가 입력 및 실행하는 이벤트 감지
+      choose_one:
+        type : choice
+        options :
+        - A
+        - B
+        - C
+        default : A
+  issues : # issue에 글을 올리는 경우 이벤트 감지
+    types : [opened]
+
+jobs :
+  push_job :
+    if : ${{github.event_name == "push"}}
+    runs-on : ubuntu-latest
+    steps :
+    - name : push_step
+      run : echo push event occured
+  
+  pr_job : 
+    if : ${{github.event_name == "pull_request"}}
+    runs-on : ubuntu-latest
+    steps : 
+    - name : pr_step
+      run : echo pull request event occured
+  
+  wd_job :
+    if : ${{github.event_name == "workflow_dispatch"}}
+    runs-on : ubuntu-latest
+    steps :
+    - name : wd_step
+      run : echo "workflow_dispatch event occured - ${{inputs.choose_one}}"
+
+  issue_job :
+    if : ${{github.event_name == "issues"}}
+    runs-on : ubuntu-latest
+    steps :
+    - name : issue_step
+      run : echo issues event occured
+
