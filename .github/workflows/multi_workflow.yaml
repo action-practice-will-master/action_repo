@@ -18,28 +18,28 @@ on :
 
 jobs :
   push_job :
-    if : ${{github.event_name == "push"}}
+    if : ${{github.event_name == 'push'}}
     runs-on : ubuntu-latest
     steps :
     - name : push_step
       run : echo push event occured
   
   pr_job : 
-    if : ${{github.event_name == "pull_request"}}
+    if : ${{github.event_name == 'pull_request'}}
     runs-on : ubuntu-latest
     steps : 
     - name : pr_step
       run : echo pull request event occured
   
   wd_job :
-    if : ${{github.event_name == "workflow_dispatch"}}
+    if : ${{github.event_name == 'workflow_dispatch'}}
     runs-on : ubuntu-latest
     steps :
     - name : wd_step
       run : echo "workflow_dispatch event occured - ${{inputs.choose_one}}"
 
   issue_job :
-    if : ${{github.event_name == "issues"}}
+    if : ${{github.event_name == 'issues'}}
     runs-on : ubuntu-latest
     steps :
     - name : issue_step
