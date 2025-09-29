@@ -22,7 +22,7 @@ jobs :
     runs-on : ubuntu-latest
     steps :
     - name : push_step
-      run : echo push event occured
+      run : echo push event occured modify
   
   pr_job : 
     if : ${{github.event_name == 'pull_request'}}
