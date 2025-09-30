@@ -16,7 +16,7 @@ jobs:
       run : echo "1st test step start"
   
   build_exit:
-    runs-on : 2nd_build_exit
+    runs-on : ubuntu-latest
     steps :
     - name : 2nd_build_exit_step
       run : |
@@ -24,7 +24,7 @@ jobs:
         exit 1 
 
   test_exit :
-    runs-on : 2nd_test_exit
+    runs-on : ubuntu-latest
     needs : [build_exit]
     steps :
     - name : 2nd_test_exit_step
