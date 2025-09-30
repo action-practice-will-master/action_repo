@@ -1,0 +1,13 @@
+name : re-run_workflow
+on : push 
+
+jobs :
+  show-read-me : 
+    runs-on : ubuntu-latest
+    steps :
+    - name : checkout
+      uses : actions/checkout@v4
+
+    - name : read_me
+      run : cat README.md
+    
