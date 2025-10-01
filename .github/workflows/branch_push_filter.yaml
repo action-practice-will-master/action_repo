@@ -1,1 +1,10 @@
 name : branch_push_filter
+on :
+  branches : [dev]
+
+jobs :
+  push_job :
+    runs-on : ubuntu-latest
+    steps :
+    - name : branch_push_filter_step
+      run : echo "Hi Branch Filter!"
