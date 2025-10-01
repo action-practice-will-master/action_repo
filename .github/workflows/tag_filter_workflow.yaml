@@ -1,0 +1,11 @@
+name : tag_filter_workflow
+on : 
+  push :
+    tags : ['v*.*.*']
+
+jobs :
+  tag_filter_job :
+    runs-on : ubuntu-latest
+    steps :
+    - name : tag_filter_step
+      run : echo "Tag Filter workflow run!"
