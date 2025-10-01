@@ -1,0 +1,11 @@
+name : step_timeout_workflow
+on : push
+
+jobs :
+  step_timeout_job :
+    runs-on : ubuntu-latest
+    steps :
+    - name : step_timeout_step
+      timeout-minutes : 1
+      run : sleep 90
+      
