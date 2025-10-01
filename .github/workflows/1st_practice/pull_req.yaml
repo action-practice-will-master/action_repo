@@ -1,8 +1,10 @@
-name : pull_req_another_branch_2nd_change
-on : pull_request
+name : pull_req
+on : 
+  pull_request : 
+    types : [opened]
 
 jobs:
-  jobs-for-pull_req:
+  jobs-for-pull_req_test_again:
     runs-on : ubuntu-latest
     steps : 
     - name : 1st_pull_req_step
