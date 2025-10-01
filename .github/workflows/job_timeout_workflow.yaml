@@ -1,0 +1,10 @@
+name : job_timeout_workflow
+on : push 
+
+jobs :
+  timeout_job :
+    runs-on : ubuntu-latest
+    timeout-minutes : 1
+    steps:
+    - name : timeout_job
+      run : sleep 90
