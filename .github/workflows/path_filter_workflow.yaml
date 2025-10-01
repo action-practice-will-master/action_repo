@@ -1,0 +1,12 @@
+name : path_filter_workflow
+on :
+  push :
+    paths : 
+    - 'dev_test/**'
+
+jobs :
+  path_filter_job :
+    runs-on : ubuntu-latest
+    steps :
+    - name : path_filter_step
+      run : echo "Path Filter Step"
