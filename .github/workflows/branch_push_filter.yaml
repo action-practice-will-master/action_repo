@@ -1,6 +1,7 @@
 name : branch_push_filter
 on :
-  branches : [dev]
+  push:
+    branches : [dev]
 
 jobs :
   push_job :
