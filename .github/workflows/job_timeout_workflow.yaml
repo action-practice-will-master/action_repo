@@ -4,7 +4,7 @@ on : push
 jobs :
   timeout_job :
     runs-on : ubuntu-latest
-    timeout-minutes : 1
+    timeout-minutes : 2
     steps:
     - name : timeout_job
-      run : sleep 90
+      run : sleep 150
