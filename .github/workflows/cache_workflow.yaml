@@ -1,0 +1,32 @@
+name : Cache Workflow for Node.js
+on :
+  push :
+    branches :
+      - dev
+
+jobs :
+  cache_test :
+    runs-on : ubuntu-latest
+    steps:
+      - name : checkout_source_file
+        use : actions/checkout@v4
+      - name : node.js module install
+        use : actions/setup-node@v5
+        with :
+          node-version : 18
+          package-manager-cache: false
+      - name : cache ~/.npm
+        use : actions/cache@v4
+        with :
+          path : ~/.npm
+          key : ${{runner.os}}-node-${{ hashFiles('**/package-lock.json')}}
+          restore-keys: |
+            ${{runner.os}}-node-
+      - name : install dependency
+        run : |
+          cd my-app
+          npm ci
+      - name : npm build
+        run : |
+          cd my-app
+          npm run build
