@@ -9,14 +9,14 @@ jobs :
     runs-on : ubuntu-latest
     steps:
       - name : checkout_source_file
-        use : actions/checkout@v4
+        uses : actions/checkout@v4
       - name : node.js module install
-        use : actions/setup-node@v5
+        uses : actions/setup-node@v5
         with :
           node-version : 18
           package-manager-cache: false
       - name : cache ~/.npm
-        use : actions/cache@v4
+        uses : actions/cache@v4
         with :
           path : ~/.npm
           key : ${{runner.os}}-node-${{ hashFiles('**/package-lock.json')}}
