@@ -1,0 +1,19 @@
+name : Output for Step to Step Workflow
+on : push
+
+jobs :
+  job-to-job:
+    runs-on : ubuntu-latest
+    output:
+      version : ${{steps.insert-output.outputs.version}}
+    steps:
+      - id : insert-output
+        run : echo "version=1.2.3" >> "$GITHUB_OUTPUT"
+
+  receive-job :
+    runs-on : ubuntu-latest
+    needs : [job-to-job]
+    steps : 
+      - name : read-output
+        run : echo "output is ${{needs.job-to-job.outputs.version}}"
+  
