@@ -1,0 +1,11 @@
+name : Env for Runtime workflow
+on : push
+
+jobs :
+  env_for_runtime :
+    runs-on : ubuntu-latest
+    steps :
+      - name : env_for_runtime_step1
+        run : echo "version=1.0.0" >> $GITHUB_ENV
+      - name : env_for_runtime_step2
+        run : echo "env value is $version"
