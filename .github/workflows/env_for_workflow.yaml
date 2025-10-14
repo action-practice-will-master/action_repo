@@ -1,0 +1,13 @@
+name : env for workflow
+on : push
+
+env :
+  env_var : Hello, env
+  workflow_name : env for workflow
+
+jobs : 
+  env_workflow_job:
+    runs-on : ubuntu-latest
+    steps:
+      - name : env_workflow_step
+        run : echo "env_var=$env_var / workflow_name = $workflow_name" 
