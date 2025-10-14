@@ -2,10 +2,11 @@ name : Output for Step to Step Workflow
 on : push
 
 jobs :
-  runs-on : ubuntu-latest
-  steps:
-    - id : insert-output
-      run : echo "version=1.2.3" > "$GITHUB_OUTPUT"
-    - name : use output
-      run : eche "output is ${{steps.insert-output.output.version}}"
+  step-to-step:
+    runs-on : ubuntu-latest
+    steps:
+      - id : insert-output
+        run : echo "version=1.2.3" > "$GITHUB_OUTPUT"
+      - name : use output
+        run : eche "output is ${{steps.insert-output.output.version}}"
   
