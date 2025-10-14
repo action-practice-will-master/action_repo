@@ -4,7 +4,7 @@ on : push
 jobs :
   job-to-job:
     runs-on : ubuntu-latest
-    output:
+    outputs:
       version : ${{steps.insert-output.outputs.version}}
     steps:
       - id : insert-output
