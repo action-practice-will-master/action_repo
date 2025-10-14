@@ -8,5 +8,5 @@ jobs :
       - id : insert-output
         run : echo "version=1.2.3" >> "$GITHUB_OUTPUT"
       - name : use output
-        run : echo "output is ${{steps.insert-output.output.version}}"
+        run : echo "output is ${{steps.insert-output.outputs.version}}"
   
