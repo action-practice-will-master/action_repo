@@ -23,5 +23,5 @@ jobs :
           name : text_artifact
           path : ./
       - name : read text file
-        run : ./cat hi.txt
+        run : cat ./hi.txt
 
