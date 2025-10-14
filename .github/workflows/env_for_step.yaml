@@ -1,0 +1,13 @@
+name : Env for step workflow
+on : push
+
+jobs : 
+  env_for_step :
+    runs-on : ubuntu-latest
+    steps : 
+      - name : env_for_step
+        env : 
+          hi : Hello to my friend
+          hello : Hello, it's me
+        run : |
+          echo "step : hi=$hi / hello=$hello"
