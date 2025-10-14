@@ -6,7 +6,7 @@ jobs :
     runs-on : ubuntu-latest
     steps:
       - id : insert-output
-        run : echo "version=1.2.3" > "$GITHUB_OUTPUT"
+        run : echo "version=1.2.3" >> "$GITHUB_OUTPUT"
       - name : use output
         run : echo "output is ${{steps.insert-output.output.version}}"
   
