@@ -1,0 +1,14 @@
+name : Env for job
+on : push
+
+jobs :
+  env_for_job :
+    runs-on : ubuntu-latest
+    env :
+      target_os : ubuntu
+      level : 2
+    steps : 
+      - name : env_for_job_step
+        run : echo "step1 - target_os=$target_os \ level=$level"
+      - name : env_for_job_step2
+        run : echo "step2 - target_os=$target_os \ level=$level"
